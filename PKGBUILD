@@ -17,7 +17,7 @@ b2sums=('fbac61630c923d8dd99200d4b99ff8adca284c70ba9676fe9306ee3f9ec617ad6895715
 prepare() {
   # WARN: Rustup will be installde from official script
   if ! command cargo 2> /dev/null; then
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -qy
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -qy --default-toolchain none
     . ~/.cargo/env
   fi
 

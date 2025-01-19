@@ -5,12 +5,10 @@ pkgver=25.01
 pkgrel=2
 pkgdesc='A post-modern modal text editor.'
 arch=('amd64')
-provides=('hx')
 conflicts=('helix-bin')
 license=('Mozilla Public License Version 2.0')
 url='https://helix-editor.com/'
 makedepends=('git')
-# extensions=('zipman')
 
 source=("$pkgname-$pkgver.tar.gz::https://github.com/helix-editor/helix/archive/$pkgver.tar.gz")
 b2sums=('fbac61630c923d8dd99200d4b99ff8adca284c70ba9676fe9306ee3f9ec617ad6895715fc48166685d64c5b1009fc3979f85965fb409be04f87920421b3bc2fc')
@@ -61,5 +59,4 @@ package() {
   install -Dm 644 "contrib/completion/hx.zsh" "$pkgdir/usr/share/zsh/site-functions/_$pkgname"
   install -Dm 644 "contrib/Helix.desktop" "$pkgdir/usr/share/applications/$pkgname.desktop"
   install -Dm 644 "contrib/$pkgname.png" -t "$pkgdir/usr/share/icons/hicolor/256x256/apps"
-
 }

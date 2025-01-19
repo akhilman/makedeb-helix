@@ -8,7 +8,8 @@ arch=('amd64')
 conflicts=('helix-bin')
 license=('Mozilla Public License Version 2.0')
 url='https://helix-editor.com/'
-depends=('libgcc-s1' 'libc6' 'hicolor-icon-theme')
+depends=('libgcc-s1' 'libc6')
+optdepends=('hicolor-icon-theme')
 makedepends=('git')
 
 source=("$pkgname-$pkgver.tar.gz::https://github.com/helix-editor/helix/archive/$pkgver.tar.gz")

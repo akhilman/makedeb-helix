@@ -2,12 +2,13 @@
 # vim: set sw=2 expandtab:
 pkgname=helix
 pkgver=25.01
-pkgrel=2
+pkgrel=3
 pkgdesc='A post-modern modal text editor.'
 arch=('amd64')
 conflicts=('helix-bin')
 license=('Mozilla Public License Version 2.0')
 url='https://helix-editor.com/'
+depends=('libgcc-s1' 'libc6' 'hicolor-icon-theme')
 makedepends=('git')
 
 source=("$pkgname-$pkgver.tar.gz::https://github.com/helix-editor/helix/archive/$pkgver.tar.gz")

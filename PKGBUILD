@@ -1,8 +1,8 @@
 # Maintainer: Ildar Akhmetgaleev <akhilmak@gmail.com>
 # vim: set sw=2 expandtab:
 pkgname=helix
-pkgver=25.01
-pkgrel=3
+pkgver=25.01.1
+pkgrel=1
 pkgdesc='A post-modern modal text editor.'
 arch=('amd64')
 conflicts=('helix-bin')
@@ -13,7 +13,7 @@ optdepends=('hicolor-icon-theme')
 makedepends=('git')
 
 source=("$pkgname-$pkgver.tar.gz::https://github.com/helix-editor/helix/archive/$pkgver.tar.gz")
-b2sums=('fbac61630c923d8dd99200d4b99ff8adca284c70ba9676fe9306ee3f9ec617ad6895715fc48166685d64c5b1009fc3979f85965fb409be04f87920421b3bc2fc')
+b2sums=('b2f10bf6047877852c122a1146d0cdb57656a4a83c135a71389ad2105196ca8577afb91c935f1af57d16ca00cc4d595bcba33688b64faabf53e1c6cc5690dab0')
 
 prepare() {
   # WARN: Rustup will be installde from official script

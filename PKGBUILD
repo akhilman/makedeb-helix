@@ -1,5 +1,7 @@
 # Maintainer: Ildar Akhmetgaleev <akhilmak@gmail.com>
 # vim: set sw=2 expandtab:
+# Based on Arch's PKGBUILD https://gitlab.archlinux.org/archlinux/packaging/packages/helix/-/blob/main/PKGBUILD?ref_type=heads
+
 pkgname=helix
 pkgver=25.01.1
 pkgrel=1

@@ -16,7 +16,7 @@ source=("$pkgname-$pkgver.tar.gz::https://github.com/helix-editor/helix/archive/
 b2sums=('b2f10bf6047877852c122a1146d0cdb57656a4a83c135a71389ad2105196ca8577afb91c935f1af57d16ca00cc4d595bcba33688b64faabf53e1c6cc5690dab0')
 
 prepare() {
-  # WARN: Rustup will be installde from official script
+  # WARN: Rustup will be installed from the official script
   if ! command cargo 2> /dev/null; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -qy --default-toolchain none
     . ~/.cargo/env

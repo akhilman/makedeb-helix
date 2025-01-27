@@ -14,15 +14,16 @@ depends=('libgcc-s1' 'libc6')
 optdepends=('hicolor-icon-theme')
 makedepends=('git')
 
-source=("$pkgname-$pkgver.tar.gz::https://github.com/helix-editor/helix/archive/$pkgver.tar.gz")
-b2sums=('b2f10bf6047877852c122a1146d0cdb57656a4a83c135a71389ad2105196ca8577afb91c935f1af57d16ca00cc4d595bcba33688b64faabf53e1c6cc5690dab0')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/helix-editor/helix/archive/$pkgver.tar.gz"
+        'rustup-init.sh::https://sh.rustup.rs')
+b2sums=('b2f10bf6047877852c122a1146d0cdb57656a4a83c135a71389ad2105196ca8577afb91c935f1af57d16ca00cc4d595bcba33688b64faabf53e1c6cc5690dab0'
+        '51fadcba5e3eb75cada1cadd82e9134b2ac2b3c13b2bce3be5322136a5db4cccf1dc82d658a04f175c1bc8160fb7413bf8f2886fc8a7abfd48a5db4eab68e38b')
 
 prepare() {
-  # WARN: Rustup will be installed from the official script
-  if ! command cargo 2> /dev/null; then
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -qy --default-toolchain none
-    . ~/.cargo/env
-  fi
+  export RUSTUP_HOME=$srcdir/rustup
+  export CARGO_HOME=$srcdir/cargo
+  sh ./rustup-init.sh -qy --default-toolchain none
+  . $CARGO_HOME/env
 
   cd "$pkgname-$pkgver"
   # NOTE: we are renaming hx to helix so there is no conflict with hex (providing hx)
@@ -32,13 +33,11 @@ prepare() {
 }
 
 build() {
-  [ -f ~/.cargo/env ] && . ~/.cargo/env
   cd "$pkgname-$pkgver"
   cargo build --frozen --release
 }
 
 check() {
-  [ -f ~/.cargo/env ] && . ~/.cargo/env
   cd "$pkgname-$pkgver"
   cargo test --frozen
 }

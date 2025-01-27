@@ -1,5 +1,6 @@
 #!/bin/bash
 podman run \
+  --pull newer \
   -i \
   --rm \
   -v $(dirname $0)/:/pkg/:rw \

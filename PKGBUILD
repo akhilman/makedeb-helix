@@ -13,9 +13,10 @@ url='https://helix-editor.com/'
 depends=('libgcc-s1' 'libc6')
 optdepends=('hicolor-icon-theme')
 makedepends=('git')
+rustupver=1.28.2
 
 source=("$pkgname-$pkgver.tar.gz::https://github.com/helix-editor/helix/archive/$pkgver.tar.gz"
-        'rustup-init::https://static.rust-lang.org/rustup/archive/1.28.2/x86_64-unknown-linux-gnu/rustup-init')
+        "rustup-init::https://static.rust-lang.org/rustup/archive/$rustupver/x86_64-unknown-linux-gnu/rustup-init")
 b2sums=('fe037eb2a578c09c2fc8e54f7977f13cdfae086270ce50075a187ffeb87704c5ecece6ee987a6f8ad5fe8807703f27440b1b14b3a1a393cd24a93204c9fb235f'
         'dd030242faca4b33ac41e614600175311a301b1799fd7997a3972f1346f2b01edb4190d575a2c0289b1efd13621e784e70ebe431e7533e7573acd4a717810f21')
 

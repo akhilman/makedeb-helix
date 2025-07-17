@@ -3,8 +3,8 @@
 # Based on Arch's PKGBUILD https://gitlab.archlinux.org/archlinux/packaging/packages/helix/-/blob/main/PKGBUILD?ref_type=heads
 
 pkgname=helix
-pkgver=25.01.1
-pkgrel=1
+pkgver=25.07
+pkgrel=0
 pkgdesc='A post-modern modal text editor.'
 arch=('amd64')
 conflicts=('helix-bin')
@@ -15,14 +15,15 @@ optdepends=('hicolor-icon-theme')
 makedepends=('git')
 
 source=("$pkgname-$pkgver.tar.gz::https://github.com/helix-editor/helix/archive/$pkgver.tar.gz"
-        'rustup-init.sh::https://sh.rustup.rs')
-b2sums=('b2f10bf6047877852c122a1146d0cdb57656a4a83c135a71389ad2105196ca8577afb91c935f1af57d16ca00cc4d595bcba33688b64faabf53e1c6cc5690dab0'
-        '51fadcba5e3eb75cada1cadd82e9134b2ac2b3c13b2bce3be5322136a5db4cccf1dc82d658a04f175c1bc8160fb7413bf8f2886fc8a7abfd48a5db4eab68e38b')
+        'rustup-init::https://static.rust-lang.org/rustup/archive/1.28.2/x86_64-unknown-linux-gnu/rustup-init')
+b2sums=('fe037eb2a578c09c2fc8e54f7977f13cdfae086270ce50075a187ffeb87704c5ecece6ee987a6f8ad5fe8807703f27440b1b14b3a1a393cd24a93204c9fb235f'
+        'dd030242faca4b33ac41e614600175311a301b1799fd7997a3972f1346f2b01edb4190d575a2c0289b1efd13621e784e70ebe431e7533e7573acd4a717810f21')
 
 prepare() {
   export RUSTUP_HOME=$srcdir/rustup
   export CARGO_HOME=$srcdir/cargo
-  sh ./rustup-init.sh -qy --default-toolchain none
+  chmod +x rustup-init
+  ./rustup-init -qy --default-toolchain none
   . $CARGO_HOME/env
 
   cd "$pkgname-$pkgver"

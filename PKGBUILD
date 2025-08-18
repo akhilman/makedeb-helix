@@ -13,8 +13,6 @@ url='https://helix-editor.com/'
 depends=('libgcc-s1' 'libc6')
 optdepends=('hicolor-icon-theme')
 makedepends=('git' 'rustup')
-rustupver=1.28.2
-
 source=("$pkgname-$pkgver.tar.gz::https://github.com/helix-editor/helix/archive/$pkgver.tar.gz")
 b2sums=('aadcec0be8d13e3957ac2e032431bafe7a0b743f48532c9a2d888fae17ec85dcb3b38d24b9905b7a6fa0a1cf73b761992a79987b17a762ad42cf8370109d7a4d')
 

@@ -12,21 +12,13 @@ license=('MPL-2.0')
 url='https://helix-editor.com/'
 depends=('libgcc-s1' 'libc6')
 optdepends=('hicolor-icon-theme')
-makedepends=('git')
+makedepends=('git' 'rustup')
 rustupver=1.28.2
 
-source=("$pkgname-$pkgver.tar.gz::https://github.com/helix-editor/helix/archive/$pkgver.tar.gz"
-        "rustup-init::https://static.rust-lang.org/rustup/archive/$rustupver/x86_64-unknown-linux-gnu/rustup-init")
-b2sums=('aadcec0be8d13e3957ac2e032431bafe7a0b743f48532c9a2d888fae17ec85dcb3b38d24b9905b7a6fa0a1cf73b761992a79987b17a762ad42cf8370109d7a4d'
-        'dd030242faca4b33ac41e614600175311a301b1799fd7997a3972f1346f2b01edb4190d575a2c0289b1efd13621e784e70ebe431e7533e7573acd4a717810f21')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/helix-editor/helix/archive/$pkgver.tar.gz")
+b2sums=('aadcec0be8d13e3957ac2e032431bafe7a0b743f48532c9a2d888fae17ec85dcb3b38d24b9905b7a6fa0a1cf73b761992a79987b17a762ad42cf8370109d7a4d')
 
 prepare() {
-  export RUSTUP_HOME=$srcdir/rustup
-  export CARGO_HOME=$srcdir/cargo
-  chmod +x rustup-init
-  ./rustup-init -qy --default-toolchain none
-  . $CARGO_HOME/env
-
   cd "$pkgname-$pkgver"
   # NOTE: we are renaming hx to helix so there is no conflict with hex (providing hx)
   sed -i "s|hx|helix|g" contrib/completion/hx.*
